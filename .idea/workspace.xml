@@ -37,12 +37,25 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:develop" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:feature/frontend" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8768b12-66ac-40c4-833f-5d85dcf09eca" name="Default Changelist" comment="" />
+    <list default="true" id="e8768b12-66ac-40c4-833f-5d85dcf09eca" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/psy-page/src/Demo/Video/Videoplayer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/psy-page/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/psy-page/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/psy-page/src/App/layout/AdminLayout/NavBar/NavLeft/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/src/App/layout/AdminLayout/NavBar/NavLeft/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/psy-page/src/App/layout/AdminLayout/NavBar/NavRight/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/src/App/layout/AdminLayout/NavBar/NavRight/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/psy-page/src/Demo/Dashboard/Default.js" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/src/Demo/Dashboard/Default.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/psy-page/src/assets/scss/partials/_general.scss" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/src/assets/scss/partials/_general.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/psy-page/src/menu-items.js" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/src/menu-items.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/psy-page/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/src/routes.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,8 +64,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -68,6 +81,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
@@ -99,7 +113,8 @@
       <updated>1605023200886</updated>
       <workItem from="1605023202222" duration="164000" />
       <workItem from="1605027116692" duration="11597000" />
-      <workItem from="1605803277649" duration="928000" />
+      <workItem from="1605803277649" duration="1648000" />
+      <workItem from="1606148373863" duration="14312000" />
     </task>
     <servers />
   </component>
@@ -117,7 +132,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="develop" />
+                        <option value="feature/frontend" />
                       </list>
                     </value>
                   </entry>
@@ -131,6 +146,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="183" y="122" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606164042734">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="183" y="122" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1606164042734" />
     <state x="457" y="214" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605803318771">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
