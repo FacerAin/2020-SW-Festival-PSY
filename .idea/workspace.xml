@@ -44,17 +44,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8768b12-66ac-40c4-833f-5d85dcf09eca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/psy-page/src/Demo/Video/Videoplayer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/psy-page/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/psy-page/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/psy-page/src/App/layout/AdminLayout/NavBar/NavLeft/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/src/App/layout/AdminLayout/NavBar/NavLeft/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/psy-page/src/App/layout/AdminLayout/NavBar/NavRight/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/src/App/layout/AdminLayout/NavBar/NavRight/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/psy-page/src/Demo/Charts/Nvd3Chart/BarDiscreteChart.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/psy-page/src/Demo/Charts/Nvd3Chart/LineChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/src/Demo/Charts/LineChart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/psy-page/src/Demo/Charts/Nvd3Chart/MultiBarChart.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/psy-page/src/Demo/Charts/Nvd3Chart/PieBasicChart.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/psy-page/src/Demo/Charts/Nvd3Chart/PieDonutChart.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/psy-page/src/Demo/Charts/Nvd3Chart/index.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/psy-page/src/Demo/Dashboard/Default.js" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/src/Demo/Dashboard/Default.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/psy-page/src/assets/scss/partials/_general.scss" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/src/assets/scss/partials/_general.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/psy-page/src/Demo/Forms/FormsElements.js" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/src/Demo/Forms/FormsElements.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/psy-page/src/Demo/Maps/GoogleMap/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/psy-page/src/Demo/Other/Docs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/psy-page/src/Demo/Other/SamplePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/psy-page/src/Demo/Video/Videoplayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/src/Demo/Video/Videoplayer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/psy-page/src/menu-items.js" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/src/menu-items.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/psy-page/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/src/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/psy-page/src/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/src/route.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +101,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/psy-page/src/Demo/Charts" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/psy-page/src/component/teach" />
     </key>
@@ -114,7 +119,8 @@
       <workItem from="1605023202222" duration="164000" />
       <workItem from="1605027116692" duration="11597000" />
       <workItem from="1605803277649" duration="1648000" />
-      <workItem from="1606148373863" duration="14312000" />
+      <workItem from="1606148373863" duration="14754000" />
+      <workItem from="1606326570325" duration="10941000" />
     </task>
     <servers />
   </component>
@@ -154,5 +160,9 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="457" y="214" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1605803318771" />
+    <state x="383" y="211" width="672" height="678" key="search.everywhere.popup" timestamp="1606327959001">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="383" y="211" width="672" height="678" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1606327959001" />
   </component>
 </project>

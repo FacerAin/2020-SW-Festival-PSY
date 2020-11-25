@@ -163,7 +163,7 @@ class FormsElements extends React.Component {
                                         </Form.Group>
                                     </Col>
                                     <Col md={6}>
-                                        <h5 className="mt-5">Range</h5>
+                                        <h5 className="mt-5">Example textareaRange</h5>
                                         <hr/>
                                         <Form.Label htmlFor="customRange1">Example range</Form.Label>
                                         <input type="range" className="custom-range" defaultValue="22" id="customRange1" />
