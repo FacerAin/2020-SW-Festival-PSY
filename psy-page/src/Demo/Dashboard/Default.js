@@ -7,12 +7,20 @@ import DEMO from "../../store/constant";
 
 import smiling from '../../assets/images/emoji/smiling-eyes.png';
 import yawning from '../../assets/images/emoji/yawning-face.png';
+import nerd from "../../assets/images/emoji/nerd-face.png";
 import "../../../node_modules/video-react/dist/video-react.css";
+import LineChart from "../Charts/LineChart";
 
 class Dashboard extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {feedbacklist : [{text: "소리 크기와 글씨 크기가 전반적으로 좋았나봐요!", subtext: "지난 시간과 다르게 관련 의견이 없었어요.", emoji: "smiling", time:100}]}
+        this.state =
+            {
+                feedbacklist : [{text: "소리 크기와 글씨 크기가 전반적으로 좋았나봐요!", subtext: "지난 시간과 다르게 관련 의견이 없었어요.", emoji: "smiling", time:100}],
+                feedbackAll : {text: "수업 집중을 잘했어요", subtext: "이번 시간에 이미지를 많이 사용했던 것이 도움이 많이 되었나봐요. 다음 시간에도 준비해봐요!", emoji: "nerd"},
+                source : "https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+            }
+
     }
     componentDidMount(){
         this.setState({feedbacklist: [{text: "소리 크기와 글씨 크기가 전반적으로 좋았나봐요!", subtext: "지난 시간과 다르게 관련 의견이 없었어요.", emoji: "smiling",time:100},
@@ -21,13 +29,32 @@ class Dashboard extends React.Component {
                 {text: "소리 크기와 글씨 크기가 전반적으로 좋았나봐요!", subtext: "지난 시간과 다르게 관련 의견이 없었어요.", emoji: "yawning",time:1271}]})
         console.log(this.state);
     }
+/*
+    constructor(props, context) {
+        super(props, context);
 
+        this.state = {
+            source: sources.bunnyMovie
+        };
+
+        this.play = this.play.bind(this);
+        this.pause = this.pause.bind(this);
+        this.load = this.load.bind(this);
+        this.changeCurrentTime = this.changeCurrentTime.bind(this);
+        this.seek = this.seek.bind(this);
+        this.changePlaybackRateRate = this.changePlaybackRateRate.bind(this);
+        this.changeVolume = this.changeVolume.bind(this);
+        this.setMuted = this.setMuted.bind(this);
+    }
+  */
     render() {
         let checkEmoji = (emoji) => {
             switch (emoji)
             {
                 case 'yawning':
                     return yawning
+                case 'nerd':
+                    return nerd
                 default:
                     return smiling
             }
@@ -38,19 +65,24 @@ class Dashboard extends React.Component {
             <Aux>
                 <Row className="row align-items-center justify-content-center">
                     <Col md={6} xl={6}>
-                        <Player
-                            playsInline
-                            poster="/assets/poster.png"
-                            src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-                        >
-                            <BigPlayButton position="center" />
-                        </Player>
+                        <Card>
+                            <Card.Body>
+                                <Player
+                                    playsInline
+                                    poster="/assets/poster.png"
+                                    src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+                                >
+                                    <BigPlayButton position="center" />
+                                </Player>
+                            </Card.Body>
+                        </Card>
                     </Col>
                 </Row>
                 <Row className = "pt-3">
                     <Col md={6} xl={12}>
                         <Card>
                             <Card.Body>
+                                <LineChart/>
                                 <div className="progress m-t-10" style={{height: '7px'}}>
                                     <div className="progress-bar progress-c-theme" role="progressbar" style={{width: '50%'}} aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"/>
                                 </div>
@@ -96,13 +128,13 @@ class Dashboard extends React.Component {
                                 <div className="row align-items-center justify-content-center">
                                     <div className="col-xl-8">
                                         <h5 className="m-0">많은 학생들이</h5>
-                                        <h4 className="m-0 pb-2">수업 집중을 힘들어했어요</h4>
+                                        <h4 className="m-0 pb-2">{this.state.feedbackAll.text}</h4>
                                         <h7 className="text-muted mt-3 mb-0">
-                                            지난 시간 동영상 자료를 활용했을 때 학생들 집중력이 높았어요. 사례 설명할 때도 학생들이 집중했어요. 다음 시간에 동영상 자료와 사례를 준비해보는 건 어떨까요?
+                                            {this.state.feedbackAll.subtext}
                                         </h7>
                                     </div>
                                     <div className="col align-items-center justify-content-center">
-                                        <img className="rounded-circle" style={{width: '100px'}} src={yawning} alt="activity-user"/>
+                                        <img className="rounded-circle" style={{width: '100px'}} src={nerd} alt="activity-user"/>
                                     </div>
                                 </div>
                             </Card.Body>
@@ -124,23 +156,23 @@ class Dashboard extends React.Component {
                                 </div>
                                 <div className="row">
                                     <div className="col-xl-12">
-                                        <h6 className="align-items-center float-right"><i className="fa fa-star f-10 m-r-10 text-c-yellow"/>95%</h6>
+                                        <h6 className="align-items-center float-right"><i className="fa fa-star f-10 m-r-10 text-c-yellow"/>70%</h6>
                                         <div className="progress m-t-30 m-b-20" style={{height: '6px'}}>
-                                            <div className="progress-bar progress-c-theme" role="progressbar" style={{width: '95%'}} aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"/>
+                                            <div className="progress-bar progress-c-theme" role="progressbar" style={{width: '70%'}} aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"/>
                                         </div>
                                     </div>
                                     <div className="col-xl-12">
                                         <h6 className="align-items-center float-left">1주차-1</h6>
-                                        <h6 className="align-items-center float-right"><i className="fa fa-star f-10 m-r-10 text-c-yellow"/>90%</h6>
+                                        <h6 className="align-items-center float-right"><i className="fa fa-star f-10 m-r-10 text-c-yellow"/>55%</h6>
                                         <div className="progress m-t-30 m-b-20" style={{height: '6px'}}>
-                                            <div className="progress-bar progress-c-theme" role="progressbar" style={{width: '90%'}} aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"/>
+                                            <div className="progress-bar progress-c-theme" role="progressbar" style={{width: '55%'}} aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"/>
                                         </div>
                                     </div>
                                     <div className="col-xl-12">
                                         <h6 className="align-items-center float-left">4주차-2</h6>
-                                        <h6 className="align-items-center float-right"><i className="fa fa-star f-10 m-r-10 text-c-yellow"/>70%</h6>
+                                        <h6 className="align-items-center float-right"><i className="fa fa-star f-10 m-r-10 text-c-yellow"/>50%</h6>
                                         <div className="progress m-t-30 m-b-20" style={{height: '6px'}}>
-                                            <div className="progress-bar progress-c-theme" role="progressbar" style={{width: '70%'}} aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"/>
+                                            <div className="progress-bar progress-c-theme" role="progressbar" style={{width: '50%'}} aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"/>
                                         </div>
                                     </div>
                                 </div>
@@ -154,89 +186,3 @@ class Dashboard extends React.Component {
 }
 
 export default Dashboard;
-
-/*
-* <div className="col-6">
-    <h6 className="text-center  m-b-10"><span className="text-muted m-r-5">Duration:</span>900</h6>
-    <div className="progress">
-        <div className="progress-bar progress-c-theme2" role="progressbar" style={{width: '50%', height: '6px'}} aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"/>
-    </div>
-</div>
-*
-* <div className="col-9">
-                                        <h3 className="f-w-300 d-flex align-items-center m-b-0"><i className="feather icon-arrow-up text-c-green f-30 m-r-5"/> $249.95</h3>
-                                    </div>
-* <div className="row d-flex align-items-center">
-                                    <div className="col-3 text-right">
-                                        <p className="m-b-0">50%</p>
-                                    </div>
-                                </div>
-*
-*  <div className="col-6">
-                                        <h6 className="d-flex  align-items-center float-right m-0">0.4 <i className="fa fa-caret-up text-c-green f-22 m-l-10"/></h6>
-                                    </div>
-*
-*
-* */
-
-
-/*
-        const tabContent = (
-            <Aux>
-                <div className="media friendlist-box align-items-center justify-content-center m-b-20">
-                    <div className="m-r-10 photo-table">
-                        <a href={DEMO.BLANK_LINK}><img className="rounded-circle" style={{width: '40px'}} src={avatar1} alt="activity-user"/></a>
-                    </div>
-                    <div className="media-body">
-                        <h6 className="m-0 d-inline">Silje Larsen</h6>
-                        <span className="float-right d-flex  align-items-center"><i className="fa fa-caret-up f-22 m-r-10 text-c-green"/>3784</span>
-                    </div>
-                </div>
-                <div className="media friendlist-box align-items-center justify-content-center m-b-20">
-                    <div className="m-r-10 photo-table">
-                        <a href={DEMO.BLANK_LINK}><img className="rounded-circle" style={{width: '40px'}} src={avatar2} alt="activity-user"/></a>
-                    </div>
-                    <div className="media-body">
-                        <h6 className="m-0 d-inline">Julie Vad</h6>
-                        <span className="float-right d-flex  align-items-center"><i className="fa fa-caret-up f-22 m-r-10 text-c-green"/>3544</span>
-                    </div>
-                </div>
-                <div className="media friendlist-box align-items-center justify-content-center m-b-20">
-                    <div className="m-r-10 photo-table">
-                        <a href={DEMO.BLANK_LINK}><img className="rounded-circle" style={{width: '40px'}} src={avatar3} alt="activity-user"/></a>
-                    </div>
-                    <div className="media-body">
-                        <h6 className="m-0 d-inline">Storm Hanse</h6>
-                        <span className="float-right d-flex  align-items-center"><i className="fa fa-caret-down f-22 m-r-10 text-c-red"/>2739</span>
-                    </div>
-                </div>
-                <div className="media friendlist-box align-items-center justify-content-center m-b-20">
-                    <div className="m-r-10 photo-table">
-                        <a href={DEMO.BLANK_LINK}><img className="rounded-circle" style={{width: '40px'}} src={avatar1} alt="activity-user"/></a>
-                    </div>
-                    <div className="media-body">
-                        <h6 className="m-0 d-inline">Frida Thomse</h6>
-                        <span className="float-right d-flex  align-items-center"><i className="fa fa-caret-down f-22 m-r-10 text-c-red"/>1032</span>
-                    </div>
-                </div>
-                <div className="media friendlist-box align-items-center justify-content-center m-b-20">
-                    <div className="m-r-10 photo-table">
-                        <a href={DEMO.BLANK_LINK}><img className="rounded-circle" style={{width: '40px'}} src={avatar2} alt="activity-user"/></a>
-                    </div>
-                    <div className="media-body">
-                        <h6 className="m-0 d-inline">Silje Larsen</h6>
-                        <span className="float-right d-flex  align-items-center"><i className="fa fa-caret-up f-22 m-r-10 text-c-green"/>8750</span>
-                    </div>
-                </div>
-                <div className="media friendlist-box align-items-center justify-content-center">
-                    <div className="m-r-10 photo-table">
-                        <a href={DEMO.BLANK_LINK}><img className="rounded-circle" style={{width: '40px'}} src={avatar3} alt="activity-user"/></a>
-                    </div>
-                    <div className="media-body">
-                        <h6 className="m-0 d-inline">Storm Hanse</h6>
-                        <span className="float-right d-flex  align-items-center"><i className="fa fa-caret-down f-22 m-r-10 text-c-red"/>8750</span>
-                    </div>
-                </div>
-            </Aux>
-        );
-        */
