@@ -4,12 +4,13 @@ import { Player, BigPlayButton} from 'video-react'
 
 import Aux from "../../hoc/_Aux";
 import DEMO from "../../store/constant";
-
-import smiling from '../../assets/images/emoji/smiling-eyes.png';
-import yawning from '../../assets/images/emoji/yawning-face.png';
-import nerd from "../../assets/images/emoji/nerd-face.png";
 import "../../../node_modules/video-react/dist/video-react.css";
+
+
 import LineChart from "../Charts/LineChart";
+
+
+const emoji_path = process.env.PUBLIC_URL + "/emoji/"
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -52,11 +53,11 @@ class Dashboard extends React.Component {
             switch (emoji)
             {
                 case 'yawning':
-                    return yawning
+                    return emoji_path+'yawning-face.png'
                 case 'nerd':
-                    return nerd
+                    return emoji_path+'nerd-face.png'
                 default:
-                    return smiling
+                    return emoji_path+'smiling-eyes.png'
             }
         }
         //TODO : 동영상이랑 아래 STate 바 연결 시키기, slack에 pin 꽂은 문서보면 재생중인 시점을 가져올 수 있음
@@ -134,7 +135,7 @@ class Dashboard extends React.Component {
                                         </h7>
                                     </div>
                                     <div className="col align-items-center justify-content-center">
-                                        <img className="rounded-circle" style={{width: '100px'}} src={nerd} alt="activity-user"/>
+                                        <img className="rounded-circle" style={{width: '100px'}} src={checkEmoji("nerd")} alt="activity-user"/>
                                     </div>
                                 </div>
                             </Card.Body>
