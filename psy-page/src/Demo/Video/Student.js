@@ -96,14 +96,13 @@ handleVideo = (state) => {
                     </Col>
 
                     <Col md={9} xl={3}>
-                        <Card>
+                        <Card className = "text-center">
                             <Card.Body>
                             <Webcam />
                             </Card.Body>
                         </Card>
-                        <Card>
+                        <Card className = "text-center">
                             <Card.Body>
-                           
                     <State stateSrc={stateSrc} handleButton={this.handleButton}/>
                             </Card.Body>
                         </Card>
