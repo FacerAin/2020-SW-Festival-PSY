@@ -146,7 +146,7 @@ class Dashboard extends React.Component {
                                   autoPlay
                                     playsInline
                                     poster="/assets/poster.png"
-                                    src= {process.env.PUBLIC_URL + "/video/lec.avi"}
+                                    src= {process.env.PUBLIC_URL + "/video/lec.mp4"}
                                 >
                                     <BigPlayButton position="center" />
                                 </Player>
