@@ -47,7 +47,6 @@ class Recognition():
         # TODO
         # -> Identifying Webcam and Video
 
-        
         self.emotion_classifier = load_model('model/emotion_model.hdf5', compile=False)
         EMOTIONS = ["Angry" ,"Disgusting","Fearful", "Happy", "Sad", "Surpring", "Neutral"]
         self.face_detector = []
@@ -65,7 +64,7 @@ class Recognition():
         self.is_focus = False
 
     def __del__(self):
-        print(self.emotions_time_list)
+        print('del')
         del self.camera
 
     def eye_aspect_ratio(self, eye):
@@ -77,7 +76,10 @@ class Recognition():
         
     def get_frame(self):
         fps = self.camera.get_fps()
-        frame = self.camera.get_frame()
+        ret, frame = self.camera.get_frame()
+        if not ret:
+            return ret, frame
+
         canvas = np.zeros((300, 300, 3), dtype = "uint8")
         # Resize frame of video to 640*480 size for faster face recognition processing
         small_frame = cv2.resize(frame, dsize=(640, 480), interpolation=cv2.INTER_AREA)
@@ -180,6 +182,7 @@ class Recognition():
 
             if self.EYE_TOTAL_COUNTER > 5 * fps:
                 self.EYE_TOTAL_COUNTER = 0
+                print('SLEEP')
                 self.SLEEP_COUNT = 0
             else:
                 if(self.SLEEP_COUNT >= 3):
@@ -194,7 +197,11 @@ class Recognition():
                 self.EYE_COUNTER = 0
                 self.SLEEP_COUNT += 1
 
-            if(Z > abs(HEAD_TH)):
+
+            print(Z)
+            if(Z > abs(150)):
+                print(Z)
+                print('HEAD')
 
             
             cv2.line(small_frame, p1, p2, (255,0,0), 2) 
@@ -238,7 +245,7 @@ class Recognition():
             #만약 3초간 다른 곳으로 고개를 보고 있으면 집중 X 우선순위 2
             #인식이 안될때도 포함
         
-        return small_frame, canvas
+        return ret, small_frame
 
 
         def get_jpg_bytes(self):

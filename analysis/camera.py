@@ -21,7 +21,7 @@ class VideoCamera(object):
     def get_frame(self):
         # Grab a single frame of video
         ret, frame = self.video.read()
-        return frame
+        return ret, frame
 
 
 if __name__ == '__main__':
