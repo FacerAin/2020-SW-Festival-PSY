@@ -17,7 +17,7 @@ emotion_classifier = load_model('model/emotion_model.hdf5', compile=False)
 
 # Parameters
 
-EYE_AR_THRESH = 0.2
+EYE_AR_THRESH = 0.3
 EYE_AR_CONSEC_SEC = 1 #2 SEC
 HEAD_TH = 100 # 130도
 
@@ -62,6 +62,9 @@ class Recognition():
         self.TOTAL = 0
         self.emotions_time_list = []
         self.is_focus = False
+        self.EYE_OPEN = False
+        self.HEAD_DETECT = False
+        self.POSE_DETECT = False
 
     def __del__(self):
         print('del')
@@ -78,7 +81,7 @@ class Recognition():
         fps = self.camera.get_fps()
         ret, frame = self.camera.get_frame()
         if not ret:
-            return ret, frame
+            return ret, frame, [False, False, False]
 
         canvas = np.zeros((300, 300, 3), dtype = "uint8")
         # Resize frame of video to 640*480 size for faster face recognition processing
@@ -92,10 +95,17 @@ class Recognition():
             self.face_detector = self.detector(small_frame_gray, 1)
         self.process_this_frame = not self.process_this_frame
 
+        if not self.face_detector:
+            self.HEAD_DETECT = False
+
+
         for face in self.face_detector:
+            self.HEAD_DETECT = True
             # face wrapped with rectangle
+            '''
             cv2.rectangle(small_frame, (face.left(), face.top()), (face.right(), face.bottom()),
                             (0, 0, 255), 3)
+            '''
 
             # make prediction and transform to numpy array
             landmarks = self.predictor(small_frame, face)  # ?��굴에?�� 68�? ?�� 찾기
@@ -182,6 +192,7 @@ class Recognition():
 
             if self.EYE_TOTAL_COUNTER > 5 * fps:
                 self.EYE_TOTAL_COUNTER = 0
+                
                 print('SLEEP')
                 self.SLEEP_COUNT = 0
             else:
@@ -189,22 +200,29 @@ class Recognition():
                     self.SLEEP_COUNT = 0
 
             if ear < EYE_AR_THRESH:
+                print('EYE_CLOSE')
                 self.EYE_COUNTER += 1
+                self.EYE_OPEN = False
             else:
+              
                 self.EYE_COUNTER = 0
+                self.EYE_OPEN = True
 
             if self.EYE_COUNTER >= EYE_AR_CONSEC_SEC * fps:
                 self.EYE_COUNTER = 0
                 self.SLEEP_COUNT += 1
 
 
-            print(Z)
+     
             if(Z > abs(150)):
-                print(Z)
                 print('HEAD')
+                self.POSE_DETECT = False
+            else:
+                self.POSE_DETECT = True
 
             
             cv2.line(small_frame, p1, p2, (255,0,0), 2) 
+            
 
             #create list to contain landmarks
             landmark_list = []
@@ -237,22 +255,31 @@ class Recognition():
 
 
             # append (x, y) in landmark_list
+            
             for p in landmarks.parts():
                 landmark_list.append([p.x, p.y])
                 cv2.circle(small_frame, (p.x, p.y), 2, (0, 255, 0), -1)
+            
 
             
             #만약 3초간 다른 곳으로 고개를 보고 있으면 집중 X 우선순위 2
             #인식이 안될때도 포함
         
-        return ret, small_frame
+        return ret, small_frame, [self.EYE_OPEN, self.HEAD_DETECT, self.POSE_DETECT]
 
 
-        def get_jpg_bytes(self):
-            frame = self.get_frame()
-            # We are using Motion JPEG, but OpenCV defaults to capture raw images,
-            # so we must encode it into JPEG in order to correctly display the
-            # video stream.
-            ret, jpg = cv2.imencode('.jpg', frame)
-            return jpg.tobytes()
+
+    def get_fps(self):
+        fps = self.camera.get_fps()
+        return fps
+
+
+
+    def get_jpg_bytes(self):
+        frame = self.get_frame()
+        # We are using Motion JPEG, but OpenCV defaults to capture raw images,
+        # so we must encode it into JPEG in order to correctly display the
+        # video stream.
+        ret, jpg = cv2.imencode('.jpg', frame)
+        return jpg.tobytes()
 

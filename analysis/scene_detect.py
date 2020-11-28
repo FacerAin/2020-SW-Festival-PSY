@@ -24,15 +24,14 @@ def find_scenes(video_path, threshold=15.0):
     video_manager.start()
     scene_manager.detect_scenes(frame_source=video_manager)
     scene_list = scene_manager.get_scene_list(base_timecode)
+    timeline = []
     
     print('List of scenes obtained:')
     for i, scene in enumerate(scene_list):
-        print('    Scene %2d: Start %s / Frame %d, End %s / Frame %d' % (
-            i+1,
-            scene[0].get_timecode(), scene[0].get_frames(),
-            scene[1].get_timecode(), scene[1].get_frames(),))
+        print(scene[1].get_timecode())
+        timeline.append(scene[1].get_timecode())
 
     # Each returned scene is a tuple of the (start, end) timecode.
-    return scene_manager.get_scene_list(base_timecode)
+    return scene_manager.get_scene_list(base_timecode), timeline
 
 
