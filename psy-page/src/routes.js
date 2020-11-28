@@ -6,7 +6,7 @@ window.$ = $;
 global.jQuery = $;
 
 const DashboardDefault = React.lazy(() => import('./Demo/Dashboard/Default'));
-const Player = React.lazy(()=> import('./Demo/Video/Videoplayer'))
+const Student = React.lazy(()=> import('./Demo/Video/Student'))
 //
 // const UIBasicButton = React.lazy(() => import('./Demo/UIElements/Basic/Button'));
 // const UIBasicBadges = React.lazy(() => import('./Demo/UIElements/Basic/Badges'));
@@ -29,7 +29,7 @@ const Player = React.lazy(()=> import('./Demo/Video/Videoplayer'))
 
 const routes = [
     { path: '/dashboard/default', exact: true, name: 'Default', component: DashboardDefault },
-    { path: '/video/player', exact: true, name: 'Player', component: Player},
+    { path: '/student', exact: true, name: 'Student', component: Student},
     // { path: '/basic/button', exact: true, name: 'Basic Button', component: UIBasicButton },
     // { path: '/basic/badges', exact: true, name: 'Basic Badges', component: UIBasicBadges },
     // { path: '/basic/breadcrumb-paging', exact: true, name: 'Basic Breadcrumb Pagination', component: UIBasicBreadcrumbPagination },

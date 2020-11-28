@@ -10,7 +10,7 @@ export default {
                     id: 'studentVideo',
                     title: '학생수업화면',
                     type: 'item',
-                    url: '/video/player',
+                    url: '/student',
                     icon: 'feather icon-file-text',
                 }
             ]
