@@ -78,20 +78,32 @@ handleVideo = (state) => {
     render() {
         return (
             <Aux>
-                <Row className="row align-items-center justify-content-center">
+                <Row className="row justify-content-center">
                     <Col md={9} xl={9}>
                         <Card>
                             <Card.Body>
                                 <Videoplayer handleVideo={this.handleVideo}/>
                                 <Memo handleMemo={this.handleMemo} handleSave = {this.handleSave} memo = {this.state.memo_text}/>
-                                <History msg_tag = {this.state.msg_tag} msg_memo={this.state.msg_memo} stateSrc={stateSrc}/>
+                               
+                            </Card.Body>
+                        </Card>
+
+                        <Card>
+                            <Card.Body>
+                            <History msg_tag = {this.state.msg_tag} msg_memo={this.state.msg_memo} stateSrc={stateSrc}/>
                             </Card.Body>
                         </Card>
                     </Col>
+
                     <Col md={9} xl={3}>
                         <Card>
                             <Card.Body>
                             <Webcam />
+                            </Card.Body>
+                        </Card>
+                        <Card>
+                            <Card.Body>
+                           
                     <State stateSrc={stateSrc} handleButton={this.handleButton}/>
                             </Card.Body>
                         </Card>
