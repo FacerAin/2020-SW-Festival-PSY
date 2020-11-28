@@ -24,13 +24,40 @@ const stateSrc = {
 
 
 export default class Student extends Component {
+
+    constructor(props){
+        super(props);
+        this.upFunction = this.upFunction.bind(this);
+      }
+
     state = {
         memo_text: '',
         msg_tag: [],
         msg_memo: [],
         player: '',
-        currentTime: ''
+        currentTime: '',
+        isSurvey: false,
+        surveyStyle: {},
     }
+
+    componentDidMount(){
+        document.addEventListener("keyup", this.upFunction, false);
+      }
+      componentWillUnmount(){
+        document.removeEventListener("keyup", this.upFunction, false);
+      }
+
+handleSurvey = () => {
+    this.setState({
+        isSurvey: !this.state.isSurvey
+    }, () => {
+        this.setState({
+            surveyStyle: this.state.isSurvey ? {border: "3px solid #63e6be"} : {}
+        })
+        
+    })
+}
+
 
 
 handleMemo = (e) => {
@@ -74,10 +101,21 @@ handleVideo = (state) => {
 
     }
 
+    upFunction(event){
+        if(event.keyCode === 38){
+            console.log('up')
+            this.handleSurvey()
+        }
+    }
+
 
     render() {
         return (
-            <Aux>
+            <Aux onKeyPress = {(e) => {
+                if(e.key === 'Enter') {
+                    console.log('E')
+                }
+            } }>
                 <Row className="row justify-content-center">
                     <Col md={9} xl={9}>
                         <Card>
@@ -101,9 +139,9 @@ handleVideo = (state) => {
                             <Webcam />
                             </Card.Body>
                         </Card>
-                        <Card className = "text-center">
+                        <Card style = {this.state.surveyStyle} className = "text-center">
                             <Card.Body>
-                    <State stateSrc={stateSrc} handleButton={this.handleButton}/>
+                    <State stateSrc={stateSrc} handleButton={this.handleButton} handleSurvey={this.handleSurvey} isSurvey = {this.state.isSurvey}/>
                             </Card.Body>
                         </Card>
                     </Col>

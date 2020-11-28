@@ -1,7 +1,6 @@
 import React from 'react';
-import { Row, Col, Card, Table, Badge, Overlay, Tooltip } from 'react-bootstrap';
+import { Row, Col, Card, Table, Badge, Overlay, Tooltip, Button } from 'react-bootstrap';
 import { Player, BigPlayButton } from 'video-react'
-import {FaDotCircle} from 'react-icons/fa'
 
 import Aux from "../../hoc/_Aux";
 import DEMO from "../../store/constant";
@@ -10,17 +9,32 @@ import "../../../node_modules/video-react/dist/video-react.css";
 
 import LineChart from "../Charts/LineChart";
 
+
+/*
+{
+attention_list : array,
+video_duration : int,
+video_tag : [{timeline: int, tag_list: string},{},{}],
+feedback_list : [{text:string, subtext:string, time:int, emoji:string},{},{}],
+feedbackAll : {text: string, subtext: string, time: int, emoji: string}
+ranking : [{lecture_number: string, lecture_attention: int(%), lecture_tag: array}] (객체 3개씩),
+}
+*/
+
+
 const example_video_sec = 900
 
 const example_tag_timeline = [
 50, 370, 540
 ]
 
+const tag_color_code_list = ['danger', 'primary', 'dark', 'secondary', 'success', 'warning']
+const tag_color_list = ['red',  'blue', 'dark', 'gray', 'mint', 'yellow']
 const example_progress_stack = ["50%","10%", "10%", "40%"]
 const progress_color = ['progress-bar progress-c-theme', 'progress-bar progress-c-theme2']
 
 const emoji_path = process.env.PUBLIC_URL + "/emoji/"
-const tag_path = process.env.PUBLIC_URL + "/item/surfboard.png"
+const item_path = process.env.PUBLIC_URL + "/item/"
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -29,43 +43,36 @@ class Dashboard extends React.Component {
         this.progressRef = []
         this.state =
         {
-            feedbacklist: [{ text: "소리 크기와 글씨 크기가 전반적으로 좋았나봐요!", subtext: "지난 시간과 다르게 관련 의견이 없었어요.", emoji: "smiling", time: 100 }],
+            feedbacklist: [{ text: "소리 크기와 글씨 크기가 전반적으로 좋았나봐요!", subtext: "지난 시간과 다르게 관련 의견이 없었어요.", emoji: "smiling", time: 50 },
+            { text: "소리 크기와 글씨 크기가 전반적으로 좋았나봐요!", subtext: "지난 시간과 다르게 관련 의견이 없었어요.", emoji: "yawning", time: 300 },
+            { text: "소리 크기와 글씨 크기가 전반적으로 좋았나봐요!", subtext: "지난 시간과 다르게 관련 의견이 없었어요.", emoji: "smiling", time: 600 },
+            { text: "소리 크기와 글씨 크기가 전반적으로 좋았나봐요!", subtext: "지난 시간과 다르게 관련 의견이 없었어요.", emoji: "yawning", time: 850 }],
             feedbackAll: { text: "수업 집중을 잘했어요", subtext: "이번 시간에 이미지를 많이 사용했던 것이 도움이 많이 되었나봐요. 다음 시간에도 준비해봐요!", emoji: "nerd" },
             source: "https://media.w3.org/2010/05/sintel/trailer_hd.mp4",
             isTooltip: [],
-            tagPosition : []
+            tagPosition : [],
+            videoSec: '1500'
         }
 
         example_progress_stack.map((i) => {
             this.setState({ isTooltip: this.state.isTooltip.push(false) })
             console.log('concat')
         })
-
-       
-
-
-
-
     }
 
     componentDidMount() {
-        this.setState({
-            feedbacklist: [{ text: "소리 크기와 글씨 크기가 전반적으로 좋았나봐요!", subtext: "지난 시간과 다르게 관련 의견이 없었어요.", emoji: "smiling", time: 100 },
-            { text: "소리 크기와 글씨 크기가 전반적으로 좋았나봐요!", subtext: "지난 시간과 다르게 관련 의견이 없었어요.", emoji: "yawning", time: 500 },
-            { text: "소리 크기와 글씨 크기가 전반적으로 좋았나봐요!", subtext: "지난 시간과 다르게 관련 의견이 없었어요.", emoji: "smiling", time: 800 },
-            { text: "소리 크기와 글씨 크기가 전반적으로 좋았나봐요!", subtext: "지난 시간과 다르게 관련 의견이 없었어요.", emoji: "yawning", time: 1271 }]
+        let tag_timeline = []
+        this.state.feedbacklist.map((item) => {
+            tag_timeline.push(item.time)
         })
-
-        console.log(this.progressBarRef.current.offsetWidth)
-        console.log(this.progressBarRef.current.offsetHeight)
-
-        this.setState({tagPosition: this.getTagPosition(example_tag_timeline)})
-
-
+        console.log(tag_timeline)
+        this.setState({tagPosition: this.getTagPosition(tag_timeline)})
         
 
+        this.player.subscribeToStateChange(this.handleStateChange.bind(this));
 
     }
+
 
     /*
     %getTagPosition
@@ -75,14 +82,21 @@ class Dashboard extends React.Component {
     ]
     */
 
+    handleSeek = (e) => {
+        console.log(this.state.feedbacklist[e.currentTarget.name]["time"])
+        this.player.seek(this.state.feedbacklist[e.currentTarget.name]["time"])
+    }
+
     getTagPosition = (tag_timeline) => {
         let width = this.progressBarRef.current.offsetWidth
 
         let position_list = []
 
         for (let i = 0; i < tag_timeline.length; i++){
-            let ratio = tag_timeline[i]  / example_video_sec
-            position_list.push(ratio* width)
+            let ratio = tag_timeline[i]  / this.state.videoSec
+            position_list.push({time: tag_timeline[i],
+                position:  ratio* width
+            })
         }
 
         return position_list
@@ -101,6 +115,14 @@ class Dashboard extends React.Component {
         })
 
     }
+
+    handleStateChange(state, prevState) {
+        this.setState({
+          player: state,
+          currentTime: state.currentTime
+        });
+      }
+
 
     render() {
         let checkEmoji = (emoji) => {
@@ -128,9 +150,6 @@ class Dashboard extends React.Component {
     </Stage>
         */
         return (
-
-
-
             <Aux>
    
                 <Row className="row align-items-center justify-content-center">
@@ -138,6 +157,10 @@ class Dashboard extends React.Component {
                         <Card>
                             <Card.Body>
                                 <Player
+                                ref={player => {
+                                    this.player = player;
+                                  }}
+                                  autoPlay
                                     playsInline
                                     poster="/assets/poster.png"
                                     src= {process.env.PUBLIC_URL + "/video/lec.mp4"}
@@ -156,19 +179,27 @@ class Dashboard extends React.Component {
 
                                 <div className="progress m-t-30 m-b-20"
                                 style={{
-                                    height: '15px'
+                                    height: '15px',
+                                    position: 'relative'
+                        
                                 }} 
                                 ref={this.progressBarRef}>
                                     {
-                                        this.state.tagPosition.map((item) => {
+                                        this.state.tagPosition.map((item, i) => {
                                             return(
-                                                <img style = {{
-                                                height: '20px',
+                                                <img name = {i} onClick = { (e) => {
+                                                    console.log('click')
+                                                    this.handleSeek(e)
+                                                }}style = {{
+                                                zIndex : 100,
+                                                top: '-8px',
+
+                                                height: '30px',
                                                 width: 'auto',
                                                 position: 'absolute',
-                                                left: item,
+                                                left: item.position,
                                 
-                                            }} src = {tag_path}/>
+                                            }} src = {item_path + "surfboard_" + tag_color_list[i%tag_color_list.length]  + '_fill.png'}/>
                                             )
                                         })
                                     }
@@ -204,10 +235,7 @@ class Dashboard extends React.Component {
                                                 (props) => (
                                                     <Tooltip id="overlay-example" {...props}>
                                                         My Tooltip
-                                                    </Tooltip>
-                                                )
-
-
+                                                    </Tooltip>)
                                             }</Overlay>
                                         )
                                     })
@@ -229,7 +257,7 @@ class Dashboard extends React.Component {
                                     <tbody>
                                         {
                                             this.state.feedbacklist.map(
-                                                (feedback) => {
+                                                (feedback, i) => {
                                                     let emoji = checkEmoji(feedback.emoji)
                                                     return (
                                                         <tr className="unread">
@@ -238,7 +266,8 @@ class Dashboard extends React.Component {
                                                                 <h6 className="mb-1 f-16">{feedback.text}</h6>
                                                                 <p className="m-0">{feedback.subtext}</p>
                                                             </td>
-                                                            <td><a href={DEMO.BLANK_LINK} className="label theme-bg text-white f-17 float-right">{String(Math.floor(feedback.time / 60)) + ":" + String(feedback.time % 60)}</a></td>
+                                                            <td>
+                                                            <Button size = {'lg'} variant = {tag_color_code_list[i%tag_color_code_list.length]}name = {i} onClick = {(e) => {this.handleSeek(e)}}>{String(Math.floor(feedback.time / 60)) + ":" + String(feedback.time % 60)}</Button></td>
                                                         </tr>
                                                     )
                                                 }
