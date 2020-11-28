@@ -4,9 +4,8 @@ const emoji_path = process.env.PUBLIC_URL + "/emoji/"
 const State = ({stateSrc,handleButton }) => {
 return (
     <>
-    <div className="justify-content-center align-content-center">
-    <div className="row" >
-
+ 
+ <div className="row" >
         {stateSrc['label_success'].map((item, i) => {
             return (
                 <OverlayTrigger xs={3} key={i} overlay={<Tooltip>{item}</Tooltip>}>
@@ -16,9 +15,8 @@ return (
             )
 
         })}
-    </div>
-</div>
-<div className="justify-content-center align-content-center">
+        </div>
+
     <div className="row" >
 
         {stateSrc['label_warning'].map((item, i) => {
@@ -31,7 +29,6 @@ return (
 
         })}
     </div>
-</div>
 </>
 )
 }
