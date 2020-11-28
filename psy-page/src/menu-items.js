@@ -8,7 +8,7 @@ export default {
             children: [
                 {
                     id: 'studentVideo',
-                    title: '학생수업화면',
+                    title: '학생 수업 화면',
                     type: 'item',
                     url: '/student',
                     icon: 'feather icon-file-text',
@@ -22,15 +22,8 @@ export default {
             icon: 'icon-navigation',
             children: [
                 {
-                    id: 'Worst',
-                    title: '1st',
-                    type: 'item',
-                    url: '/dashboard/default',
-                    icon: 'feather icon-file-text',
-                },
-                {
                     id: 'Best',
-                    title: '2st',
+                    title: '교수자 Report',
                     type: 'item',
                     url: '/dashboard/default',
                     icon: 'feather icon-file-text',

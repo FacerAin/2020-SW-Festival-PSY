@@ -2,6 +2,8 @@ import React from 'react';
 import DEMO  from './../../../../../store/constant';
 import Aux from "../../../../../hoc/_Aux";
 
+const surfLogo = process.env.PUBLIC_URL + "/favicon.ico"
+
 const navLogo = (props) => {
     let toggleClass = ['mobile-menu'];
     if (props.collapseMenu) {
@@ -12,10 +14,8 @@ const navLogo = (props) => {
         <Aux>
             <div className="navbar-brand header-logo">
                  <a href={DEMO.BLANK_LINK} className="b-brand">
-                    <div className="b-bg">
-                        <i className="feather icon-trending-up" />
-                    </div>
-                    <span className="b-title">Datta Able</span>
+                     <img src={surfLogo} alt="surfLogo" style={{width:"30px"}}/>
+                    <span className="b-title">Surf</span>
                  </a>
                 <a href={DEMO.BLANK_LINK} className={toggleClass.join(' ')} id="mobile-collapse" onClick={props.onToggleNavigation}><span /></a>
             </div>

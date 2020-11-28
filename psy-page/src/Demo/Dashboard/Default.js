@@ -8,7 +8,7 @@ import Aux from "../../hoc/_Aux";
 import "../../../node_modules/video-react/dist/video-react.css";
 
 
-import LineChart from "../Charts/LineChart";
+import LineChart from "./LineChart";
 
 
 const tag_color_code_list = ['danger', 'primary', 'dark', 'secondary', 'success', 'warning']
@@ -173,7 +173,7 @@ class Dashboard extends React.Component {
                                                 <img name = {i} onClick = { (e) => {
                                                     console.log('click')
                                                     this.handleSeek(e)
-                                                }}style = {{
+                                                }} style = {{
                                                 zIndex : 100,
                                                 top: '-8px',
 
@@ -182,7 +182,8 @@ class Dashboard extends React.Component {
                                                 position: 'absolute',
                                                 left: item.position,
                                 
-                                            }} src = {item_path + "surfboard_" + tag_color_list[i%tag_color_list.length]  + '_fill.png'}/>
+                                            }} src = {item_path + "surfboard_" + tag_color_list[i%tag_color_list.length]  + '_fill.png'}
+                                               alt={"progress"}/>
                                             )
                                         })
                                     }
