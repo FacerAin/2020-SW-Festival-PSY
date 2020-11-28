@@ -20,6 +20,7 @@ const example_progress_stack = ["50%","10%", "10%", "40%"]
 const progress_color = ['progress-bar progress-c-theme', 'progress-bar progress-c-theme2']
 
 const emoji_path = process.env.PUBLIC_URL + "/emoji/"
+const tag_path = process.env.PUBLIC_URL + "/item/surfboard.png"
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -139,7 +140,7 @@ class Dashboard extends React.Component {
                                 <Player
                                     playsInline
                                     poster="/assets/poster.png"
-                                    src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+                                    src= {process.env.PUBLIC_URL + "/video/lec.mp4"}
                                 >
                                     <BigPlayButton position="center" />
                                 </Player>
@@ -154,18 +155,20 @@ class Dashboard extends React.Component {
                                 <LineChart/>
 
                                 <div className="progress m-t-30 m-b-20"
-                                style={{
+                                style={{W
                                     height: '15px'
                                 }} 
                                 ref={this.progressBarRef}>
                                     {
-                                        this.state.tagPosition.map((item) => {
+                                        this.state.tagWPosition.map((item) => {
                                             return(
-                                                <FaDotCircle size = {15} style = {{
+                                                <img style = {{
+                                                height: '20px',
+                                                width: 'auto',
                                                 position: 'absolute',
                                                 left: item,
-                                                color: '#f44235'
-                                            }}/>
+                                
+                                            }} src = {tag_path}/>
                                             )
                                         })
                                     }

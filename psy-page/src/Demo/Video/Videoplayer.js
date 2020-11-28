@@ -33,7 +33,7 @@ export default class Videoplayer extends Component {
             autoPlay={true}
             playsInline
             poster="/assets/poster.png"
-            src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+            src=  {process.env.PUBLIC_URL + "/video/lec.mp4"}
         >
             <ControlBar disableDefaultControls={true} >
                 <VolumeMenuButton />
