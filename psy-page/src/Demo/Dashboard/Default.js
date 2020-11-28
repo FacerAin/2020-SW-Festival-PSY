@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Card, Table, Badge, ProgressBar, Overlay, Tooltip } from 'react-bootstrap';
+import { Row, Col, Card, Table, Badge, Overlay, Tooltip } from 'react-bootstrap';
 import { Player, BigPlayButton } from 'video-react'
 import {FaDotCircle} from 'react-icons/fa'
 
@@ -16,8 +16,8 @@ const example_tag_timeline = [
 50, 370, 540
 ]
 
-const example_progress_stack = [50,10, 10, 40]
-const progress_color = ['success', 'warning', 'danger']
+const example_progress_stack = ["50%","10%", "10%", "40%"]
+const progress_color = ['progress-bar progress-c-theme', 'progress-bar progress-c-theme2']
 
 const emoji_path = process.env.PUBLIC_URL + "/emoji/"
 
@@ -152,36 +152,47 @@ class Dashboard extends React.Component {
                         <Card>
                             <Card.Body>
                                 <LineChart/>
-                       
-                                <ProgressBar
+
+                                <div className="progress m-t-30 m-b-20"
                                 style={{
-                                    height: '2rem'
+                                    height: '15px'
                                 }} 
                                 ref={this.progressBarRef}>
                                     {
                                         this.state.tagPosition.map((item) => {
-                                            return(    <FaDotCircle size = { 30} style = {{
+                                            return(
+                                                <FaDotCircle size = {15} style = {{
                                                 position: 'absolute',
                                                 left: item,
-                                                color: 'blue'
-                                            }}/>)
+                                                color: '#f44235'
+                                            }}/>
+                                            )
                                         })
                                     }
                             
                                     {
-                                        example_progress_stack.map((item, i) => {
+                                        example_progress_stack.map((item, i) =>
+                                        {
                                             return (
-                                                <ProgressBar
-                                                onMouseOut={(e) => {
+                                                <div className={progress_color[i%2]} role="progressbar"
+                                                onMouseOut={(e) =>
+                                                {
                                                     this.handleTooltip(e)
-                                                }} onMouseOver={(e) => {
+                                                }} onMouseOver={(e) =>
+                                                {
                                                     this.handleTooltip(e)
-                                                }} data-div_id={i} ref={content => this.progressRef[i] = content} variant={progress_color[i % progress_color.length]} now={item} key={i}>
-                                                </ProgressBar>
+                                                }} data-div_id={i}
+                                                 ref={content => this.progressRef[i] = content}
+                                                 style={{ width: item }}
+                                                 aria-valuenow="70"
+                                                 aria-valuemin="0"
+                                                 aria-valuemax="100"
+                                                >
+                                                </div>
                                             )
                                         })
                                     }
-                                </ProgressBar>
+                                </div>
                                 {
                                     this.progressRef.map((item, i) => {
 

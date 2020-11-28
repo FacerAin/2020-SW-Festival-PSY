@@ -44,21 +44,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8768b12-66ac-40c4-833f-5d85dcf09eca" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/psy-page/public/item/sufboard.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/psy-page/public/item/surfboard_fill.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/psy-page/public/item/surfboard_fill_white.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/psy-page/src/Demo/Charts/Nvd3Chart/BarDiscreteChart.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/psy-page/src/Demo/Charts/Nvd3Chart/LineChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/src/Demo/Charts/LineChart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/psy-page/src/Demo/Charts/Nvd3Chart/MultiBarChart.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/psy-page/src/Demo/Charts/Nvd3Chart/PieBasicChart.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/psy-page/src/Demo/Charts/Nvd3Chart/PieDonutChart.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/psy-page/src/Demo/Charts/Nvd3Chart/index.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/psy-page/src/Demo/Dashboard/Default.js" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/src/Demo/Dashboard/Default.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/psy-page/src/Demo/Forms/FormsElements.js" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/src/Demo/Forms/FormsElements.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/psy-page/src/Demo/Maps/GoogleMap/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/psy-page/src/Demo/Other/Docs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/psy-page/src/Demo/Other/SamplePage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/psy-page/src/Demo/Video/Videoplayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/src/Demo/Video/Videoplayer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/psy-page/src/menu-items.js" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/src/menu-items.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/psy-page/src/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/src/route.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +91,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/psy-page/public/item" />
+      <recent name="$PROJECT_DIR$/psy-page/public" />
       <recent name="$PROJECT_DIR$/psy-page/src/Demo/Charts" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/psy-page/src/component/teach" />
@@ -120,7 +112,9 @@
       <workItem from="1605027116692" duration="11597000" />
       <workItem from="1605803277649" duration="1648000" />
       <workItem from="1606148373863" duration="14754000" />
-      <workItem from="1606326570325" duration="10941000" />
+      <workItem from="1606326570325" duration="11580000" />
+      <workItem from="1606402000355" duration="1120000" />
+      <workItem from="1606556298983" duration="3904000" />
     </task>
     <servers />
   </component>
