@@ -155,7 +155,7 @@ class Dashboard extends React.Component {
                                 <LineChart/>
 
                                 <div className="progress m-t-30 m-b-20"
-                                style={{W
+                                style={{
                                     height: '15px'
                                 }} 
                                 ref={this.progressBarRef}>
