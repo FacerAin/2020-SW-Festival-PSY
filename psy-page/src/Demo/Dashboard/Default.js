@@ -160,7 +160,7 @@ class Dashboard extends React.Component {
                                 }} 
                                 ref={this.progressBarRef}>
                                     {
-                                        this.state.tagWPosition.map((item) => {
+                                        this.state.tagPosition.map((item) => {
                                             return(
                                                 <img style = {{
                                                 height: '20px',
