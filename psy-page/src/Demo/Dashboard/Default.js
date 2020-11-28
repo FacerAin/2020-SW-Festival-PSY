@@ -1,6 +1,8 @@
 import React from 'react';
 import { Row, Col, Card, Table, Badge, Overlay, Tooltip, Button } from 'react-bootstrap';
 import { Player, BigPlayButton } from 'video-react'
+import moment from 'moment';
+
 
 import Aux from "../../hoc/_Aux";
 import "../../../node_modules/video-react/dist/video-react.css";
@@ -8,12 +10,6 @@ import "../../../node_modules/video-react/dist/video-react.css";
 
 import LineChart from "../Charts/LineChart";
 
-
-const example_video_sec = 900
-
-const example_tag_timeline = [
-50, 370, 540
-]
 
 const tag_color_code_list = ['danger', 'primary', 'dark', 'secondary', 'success', 'warning']
 const tag_color_list = ['red',  'blue', 'dark', 'gray', 'mint', 'yellow']
@@ -254,7 +250,7 @@ class Dashboard extends React.Component {
                                                                 <p className="m-0">{feedback.subtext}</p>
                                                             </td>
                                                             <td>
-                                                            <Button style ={{width: '60px', height: '30px', margin: 'auto'}}size = {'sm'} variant = {tag_color_code_list[i%tag_color_code_list.length]}name = {i} onClick = {(e) => {this.handleSeek(e)}}>{String(Math.floor(feedback.time / 60)) + ":" + String(feedback.time % 60)}</Button></td>
+                                                            <Button style ={{width: '60px', height: '30px', margin: 'auto'}}size = {'sm'} variant = {tag_color_code_list[i%tag_color_code_list.length]}name = {i} onClick = {(e) => {this.handleSeek(e)}}>{moment.utc(moment.duration(feedback.time, 'seconds').as('milliseconds')).format("mm:ss")}</Button></td>
                                                         </tr>
                                                     )
                                                 }
