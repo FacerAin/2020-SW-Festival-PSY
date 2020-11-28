@@ -3,23 +3,10 @@ import { Row, Col, Card, Table, Badge, Overlay, Tooltip, Button } from 'react-bo
 import { Player, BigPlayButton } from 'video-react'
 
 import Aux from "../../hoc/_Aux";
-import DEMO from "../../store/constant";
 import "../../../node_modules/video-react/dist/video-react.css";
 
 
 import LineChart from "../Charts/LineChart";
-
-
-/*
-{
-attention_list : array,
-video_duration : int,
-video_tag : [{timeline: int, tag_list: string},{},{}],
-feedback_list : [{text:string, subtext:string, time:int, emoji:string},{},{}],
-feedbackAll : {text: string, subtext: string, time: int, emoji: string}
-ranking : [{lecture_number: string, lecture_attention: int(%), lecture_tag: array}] (객체 3개씩),
-}
-*/
 
 
 const example_video_sec = 900
@@ -267,7 +254,7 @@ class Dashboard extends React.Component {
                                                                 <p className="m-0">{feedback.subtext}</p>
                                                             </td>
                                                             <td>
-                                                            <Button size = {'lg'} variant = {tag_color_code_list[i%tag_color_code_list.length]}name = {i} onClick = {(e) => {this.handleSeek(e)}}>{String(Math.floor(feedback.time / 60)) + ":" + String(feedback.time % 60)}</Button></td>
+                                                            <Button style ={{width: '60px', height: '30px', margin: 'auto'}}size = {'sm'} variant = {tag_color_code_list[i%tag_color_code_list.length]}name = {i} onClick = {(e) => {this.handleSeek(e)}}>{String(Math.floor(feedback.time / 60)) + ":" + String(feedback.time % 60)}</Button></td>
                                                         </tr>
                                                     )
                                                 }
