@@ -3,6 +3,16 @@ import NVD3Chart from 'react-nvd3';
 
 function getDatum() {
     let sin = []
+    
+    for(let i = 0; i < 900; i++)
+    {
+        sin.push(
+            {
+                x: i,
+                y: Math.sin(i/10)
+            }
+        )   
+    }
 
     return [
         {
@@ -16,7 +26,7 @@ function getDatum() {
 //'#04a9f5'
 // '#1de9b6',
 
-class LineChart extends React.Component {
+class LineChart extends React.Component {   
 
     render() {
         const data = getDatum();
