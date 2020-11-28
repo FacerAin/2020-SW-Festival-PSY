@@ -81,7 +81,7 @@ handleVideo = (state) => {
             })
         })
 
-        console.log(this.state.msg_tag)
+
     }
 
     handleSave = (e) => {
@@ -103,7 +103,7 @@ handleVideo = (state) => {
 
     upFunction(event){
         if(event.keyCode === 38){
-            console.log('up')
+
             this.handleSurvey()
         }
     }
@@ -113,7 +113,7 @@ handleVideo = (state) => {
         return (
             <Aux onKeyPress = {(e) => {
                 if(e.key === 'Enter') {
-                    console.log('E')
+       
                 }
             } }>
                 <Row className="row justify-content-center">

@@ -39,7 +39,6 @@ class Dashboard extends React.Component {
 
         example_progress_stack.map((i) => {
             this.setState({ isTooltip: this.state.isTooltip.push(false) })
-            console.log('concat')
         })
     }
 
@@ -48,7 +47,6 @@ class Dashboard extends React.Component {
         this.state.feedbacklist.map((item) => {
             tag_timeline.push(item.time)
         })
-        console.log(tag_timeline)
         this.setState({tagPosition: this.getTagPosition(tag_timeline)})
         
 
@@ -66,7 +64,7 @@ class Dashboard extends React.Component {
     */
 
     handleSeek = (e) => {
-        console.log(this.state.feedbacklist[e.currentTarget.name]["time"])
+
         this.player.seek(this.state.feedbacklist[e.currentTarget.name]["time"])
     }
 
@@ -171,7 +169,7 @@ class Dashboard extends React.Component {
                                         this.state.tagPosition.map((item, i) => {
                                             return(
                                                 <img name = {i} onClick = { (e) => {
-                                                    console.log('click')
+                                         
                                                     this.handleSeek(e)
                                                 }} style = {{
                                                 zIndex : 100,
