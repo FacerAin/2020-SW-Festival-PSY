@@ -13,7 +13,7 @@ import LineChart from "./LineChart";
 
 const tag_color_code_list = ['danger', 'primary', 'dark', 'secondary', 'success', 'warning']
 const tag_color_list = ['red',  'blue', 'dark', 'gray', 'mint', 'yellow']
-const example_progress_stack = ["50%","10%", "10%", "40%"]
+const example_progress_stack = ['47.2%' , '7%','12.8%', '12.8%',  '20%']
 const progress_color = ['progress-bar progress-c-theme', 'progress-bar progress-c-theme2']
 
 const emoji_path = process.env.PUBLIC_URL + "/emoji/"
@@ -26,20 +26,24 @@ class Dashboard extends React.Component {
         this.progressRef = []
         this.state =
         {
-            feedbacklist: [{ text: "소리 크기와 글씨 크기가 전반적으로 좋았나봐요!", subtext: "지난 시간과 다르게 관련 의견이 없었어요.", emoji: "smiling", time: 50 },
-            { text: "소리 크기와 글씨 크기가 전반적으로 좋았나봐요!", subtext: "지난 시간과 다르게 관련 의견이 없었어요.", emoji: "yawning", time: 300 },
-            { text: "소리 크기와 글씨 크기가 전반적으로 좋았나봐요!", subtext: "지난 시간과 다르게 관련 의견이 없었어요.", emoji: "smiling", time: 600 },
-            { text: "소리 크기와 글씨 크기가 전반적으로 좋았나봐요!", subtext: "지난 시간과 다르게 관련 의견이 없었어요.", emoji: "yawning", time: 850 }],
-            feedbackAll: { text: "수업 집중을 잘했어요", subtext: "이번 시간에 이미지를 많이 사용했던 것이 도움이 많이 되었나봐요. 다음 시간에도 준비해봐요!", emoji: "nerd" },
+            graphPer: ['47.2%' , '7%','12.8%', '12.8%',  '20%'],
+            taglist: [{time: 425,  tag: 'ppt'}, {time: 488, tag: 'picture'}, {time:604, tag: 'ppt'}, {time: 720, tag: 'plusCase'}, {time: 900, tag: 'ppt'}],
+            feedbacklist: [
+                { text: "이 구간에 학생들이 집중하지 않았어요. ", subtext: "이미지 혹은 사례를 준비해보면 어떨까요?", emoji: "yawning", time: 120 },
+                { text: "학생들이 내용 이해를 어려워해요", subtext: "다음 시간에 추가 설명이 필요해 보여요", emoji: "explode", time: 332 },
+                { text: "학생들의 집중도가 높아졌어요", subtext: "그림 설명이 이해가 잘 되었나봐요", emoji: "smiling", time: 450 },
+            { text: "설명이 너무 빠르대요.", subtext: "조금 마음의 여유를 가져 볼까요?", emoji: "yawning", time: 630 },
+            { text: "학생들이 내용 이해를 어려워해요", subtext: "관련 영상도 준비해보면 좋을 것 같아요!", emoji: "thinking", time: 650 }],
+            feedbackAll: { text: "집중 SoSo", subtext: "사례 설명과 그림 설명이 반응이 좋았어요. 다음 수업 시간에도 적용해보아요!", emoji: "thinking" },
             source: "https://media.w3.org/2010/05/sintel/trailer_hd.mp4",
             isTooltip: [],
             tagPosition : [],
-            videoSec: '1500'
+            videoSec: '900'
         }
-
         example_progress_stack.map((i) => {
             this.setState({ isTooltip: this.state.isTooltip.push(false) })
         })
+
     }
 
     componentDidMount() {
@@ -47,6 +51,7 @@ class Dashboard extends React.Component {
         this.state.feedbacklist.map((item) => {
             tag_timeline.push(item.time)
         })
+
         this.setState({tagPosition: this.getTagPosition(tag_timeline)})
         
 
@@ -112,6 +117,11 @@ class Dashboard extends React.Component {
                     return emoji_path + 'yawning-face.png'
                 case 'nerd':
                     return emoji_path + 'nerd-face.png'
+                case 'explode':
+                    return emoji_path + 'exploding-head.png'
+                case 'thinking':
+                    return emoji_path + 'thinking-face.png'
+
                 default:
                     return emoji_path + 'smiling-eyes.png'
             }
@@ -187,7 +197,7 @@ class Dashboard extends React.Component {
                                     }
                             
                                     {
-                                        example_progress_stack.map((item, i) =>
+                                       example_progress_stack.map((item, i) =>
                                         {
                                             return (
                                                 <div className={progress_color[i%2]} role="progressbar"
@@ -199,7 +209,7 @@ class Dashboard extends React.Component {
                                                     this.handleTooltip(e)
                                                 }} data-div_id={i}
                                                  ref={content => this.progressRef[i] = content}
-                                                 style={{ width: item }}
+                                                 style={{ width: item}}
                                                  aria-valuenow="70"
                                                  aria-valuemin="0"
                                                  aria-valuemax="100"
@@ -216,7 +226,7 @@ class Dashboard extends React.Component {
                                             <Overlay target={item} show={this.state.isTooltip[i]} placement='top' >{
                                                 (props) => (
                                                     <Tooltip id="overlay-example" {...props}>
-                                                        My Tooltip
+                                                        {this.state.taglist[i]["tag"]}
                                                     </Tooltip>)
                                             }</Overlay>
                                         )

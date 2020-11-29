@@ -6,12 +6,12 @@ function getDatum() {
 
 
     
-    for(let i = 0; i < 900; i++)
+    for(let i = 0; i < 15; i++)
     {
         data.push(
             {
-                x: i,
-                y: line_data[i]
+                x: i+1,
+                y: line_data[i] * 100
             }
         )   
     }
