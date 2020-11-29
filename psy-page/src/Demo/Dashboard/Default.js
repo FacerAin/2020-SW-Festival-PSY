@@ -32,9 +32,9 @@ class Dashboard extends React.Component {
                 { text: "이 구간에 학생들이 집중하지 않았어요. ", subtext: "이미지 혹은 사례를 준비해보면 어떨까요?", emoji: "yawning", time: 120 },
                 { text: "학생들이 내용 이해를 어려워해요", subtext: "다음 시간에 추가 설명이 필요해 보여요", emoji: "explode", time: 332 },
                 { text: "학생들의 집중도가 높아졌어요", subtext: "그림 설명이 이해가 잘 되었나봐요", emoji: "smiling", time: 450 },
-            { text: "설명이 너무 빠르대요.", subtext: "조금 마음의 여유를 가져 볼까요?", emoji: "yawning", time: 630 },
+            { text: "설명이 너무 빠르대요.", subtext: "조금 마음의 여유를 가져 볼까요?", emoji: "tooFast", time: 630 },
             { text: "학생들이 내용 이해를 어려워해요", subtext: "관련 영상도 준비해보면 좋을 것 같아요!", emoji: "thinking", time: 650 }],
-            feedbackAll: { text: "집중 SoSo", subtext: "사례 설명과 그림 설명이 반응이 좋았어요. 다음 수업 시간에도 적용해보아요!", emoji: "thinking" },
+            feedbackAll: { text: "수업에 잘 집중했어요!", subtext: "사례 설명과 그림 설명이 반응이 좋았어요. 다음 수업 시간에도 적용해보아요!", emoji: "thinking" },
             source: "https://media.w3.org/2010/05/sintel/trailer_hd.mp4",
             isTooltip: [],
             tagPosition : [],
@@ -121,6 +121,8 @@ class Dashboard extends React.Component {
                     return emoji_path + 'exploding-head.png'
                 case 'thinking':
                     return emoji_path + 'thinking-face.png'
+                case 'tooFast':
+                    return emoji_path + 'fast-reverse-button.png'
 
                 default:
                     return emoji_path + 'smiling-eyes.png'
