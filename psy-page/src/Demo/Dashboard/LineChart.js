@@ -1,22 +1,24 @@
 import React from 'react';
 import NVD3Chart from 'react-nvd3';
-
+import {line_data} from './line_data'
 function getDatum() {
-    let sin = []
+    let data = []
+
+
     
     for(let i = 0; i < 900; i++)
     {
-        sin.push(
+        data.push(
             {
                 x: i,
-                y: Math.sin(i/10)
+                y: line_data[i]
             }
         )   
     }
 
     return [
-        {
-            values: sin,
+        { 
+            values: data,
             key: '집중도 (%)',
             color: '#A389D4'
         }
