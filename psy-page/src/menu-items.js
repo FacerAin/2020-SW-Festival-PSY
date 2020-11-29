@@ -29,6 +29,21 @@ export default {
                     icon: 'feather icon-file-text',
                 }
             ]
+        },
+        {
+            id: 'home',
+            title: 'Home',
+            type: 'group',
+            icon: 'icon-navigation',
+            children: [
+                {
+                    id: 'homepage',
+                    title: '홈',
+                    type: 'item',
+                    url: '/home',
+                    icon: 'feather icon-file-text',
+                }
+            ]
         }
     ]
 }

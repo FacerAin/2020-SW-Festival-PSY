@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Button, Col, Card, Tooltip, OverlayTrigger, Form, Table } from 'react-bootstrap';
+import { Row, Col, Card} from 'react-bootstrap';
 import Webcam from './Webcam'
 import Memo from './Memo'
 import Videoplayer from './Videoplayer'

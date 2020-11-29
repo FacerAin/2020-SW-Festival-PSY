@@ -37,15 +37,17 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:feature/frontend" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8768b12-66ac-40c4-833f-5d85dcf09eca" name="Default Changelist" comment="">
+    <list default="true" id="525568a9-ba24-4382-9994-5485c7d4f3af" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/psy-page/src/Demo/Home/MainPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/psy-page/src/Demo/Dashboard/Default.js" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/src/Demo/Dashboard/Default.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/psy-page/src/Demo/Video/Student.js" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/src/Demo/Video/Student.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/psy-page/src/menu-items.js" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/src/menu-items.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/psy-page/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/psy-page/src/routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +105,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e8768b12-66ac-40c4-833f-5d85dcf09eca" name="Default Changelist" comment="" />
+      <changelist id="525568a9-ba24-4382-9994-5485c7d4f3af" name="Default Changelist" comment="" />
       <created>1605023200886</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -119,6 +121,7 @@
       <workItem from="1606592362183" duration="4651000" />
       <workItem from="1606601913652" duration="1010000" />
       <workItem from="1606642663803" duration="1903000" />
+      <workItem from="1606673600651" duration="1243000" />
     </task>
     <servers />
   </component>
@@ -136,7 +139,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="feature/frontend" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
