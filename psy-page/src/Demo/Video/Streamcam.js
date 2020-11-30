@@ -1,30 +1,29 @@
-import React, {useEffect, useRef} from "react";
-import Webcam from "react-webcam";
+import React, { useRef, useState } from 'react';
+import { useUserMedia } from './useUserMedia';
 
-const Streamcam = () => {
+const CAPTURE_OPTIONS = {
+    audio: false,
+    video: { facingMode: "environment" },
+};
 
-  const webcamRef = React.useRef(null);
+function Streamcam() {
+  const videoRef = useRef();
+  const mediaStream = useUserMedia(CAPTURE_OPTIONS);
 
-  const capture = React.useCallback(
-    () => {
-      const imageSrc = webcamRef.current.getScreenshot();
-    },
-    [webcamRef]
+  if (mediaStream && videoRef.current && !videoRef.current.srcObject) {
+    videoRef.current.srcObject = mediaStream;
+  }
+
+  function handleCanPlay() {
+    videoRef.current.play();
+  }
+
+  return (
+    <video style={{
+      width: '200px',
+      heigth: 'auto'
+    }}ref={videoRef} onCanPlay={handleCanPlay} autoPlay playsInline muted />
   );
-
-
-    return( 
-        <Webcam
-        audio={false}
-        width={200}
-        ref={webcamRef}
-        screenshotFormat="image/jpeg"
-      />
-    )
-
-
 }
 
-
-
-export default Streamcam;
+export default Streamcam
