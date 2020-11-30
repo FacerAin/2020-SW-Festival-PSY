@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Button, Col, Card, Tooltip, OverlayTrigger, Form, Table } from 'react-bootstrap';
-import Webcam from './Webcam'
+import Streamcam from './Streamcam'
 import Memo from './Memo'
 import Videoplayer from './Videoplayer'
 import State from './State'
@@ -136,7 +136,7 @@ handleVideo = (state) => {
                     <Col md={9} xl={3}>
                         <Card className = "text-center">
                             <Card.Body>
-                            <Webcam />
+                            <Streamcam />
                             </Card.Body>
                         </Card>
                         <Card style = {this.state.surveyStyle} className = "text-center">
