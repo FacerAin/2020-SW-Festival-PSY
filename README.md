@@ -10,6 +10,8 @@
 **SURF (Smart Uncovering Reaction Feedback)**
 > 비대면 학습 솔루션 - 강의자와 학습자의 상호작용을 바탕으로 한 분석 시스템
 
+<img width="1440" alt="home_image" src="https://user-images.githubusercontent.com/16442978/100631268-e0733d80-336e-11eb-9404-cab1909e6511.png">
+
 ### DEMO
 - [LINK](https://surf.bu.to/)
 
