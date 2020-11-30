@@ -1,2 +1,5 @@
 analysis
 psy-page/src/Demo/Dashboard/line_data.js
+.idea
+.vscode
+.DS_Store
